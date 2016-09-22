@@ -1,7 +1,0 @@
-package br.com.fiap.servlet;
-
-import javax.servlet.http.HttpServlet;
-
-public class UsuarioServlet extends HttpServlet {
-
-}

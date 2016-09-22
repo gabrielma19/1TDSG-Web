@@ -19,6 +19,7 @@
 		</div>
 	<% } %>	
 	<form action="clienteServlet" method="post">
+		<input type="hidden" name="acao" value="cadastrar">
 		<div class="form-group">
 			<label for="id-nome">Nome</label>
 			<input type="text" name="nome" 

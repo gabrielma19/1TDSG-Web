@@ -3,7 +3,6 @@
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
 <fullyQualifiedTypeName name="com.sun.xml.internal.bind.v2.schemagen.xmlschema.List"/>
 <fullyQualifiedTypeName name="br.com.fiap.bean.Produto"/>
-<fullyQualifiedTypeName name="br.com.fiap.bean.Cliente"/>
 <fullyQualifiedTypeName name="br.com.fiap.bo.ClienteBO"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
@@ -12,4 +11,5 @@
 <fullyQualifiedTypeName name="br.com.fiap.bean.Usuario"/>
 <fullyQualifiedTypeName name="com.sun.xml.internal.ws.resources.HttpserverMessages"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+<fullyQualifiedTypeName name="br.com.fiap.bean.Cliente"/>
 </qualifiedTypeNameHistroy>

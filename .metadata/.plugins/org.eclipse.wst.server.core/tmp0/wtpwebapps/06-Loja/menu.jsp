@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>					
 <script type="text/javascript" src="js/bootstrap.min.js"></script>						
 
@@ -21,19 +23,27 @@
         <li><a href="clienteServlet">Lista de Clientes</a></li>
         <li><a href="cadastro-produto.jsp">Cadastro de Produto</a></li>
         <li><a href="produtoServlet">Listar Produto</a></li>        
-      </ul>          
-      <ul class="nav navbar-nav navbar-right">
-    		<li class="dropdown">
-    			<a href="#" class="dropdown-toggle"	
-    			data-toggle="dropdown" role="button"
-    			 aria-haspopup="true" 
-    			aria-expanded="false">${usuario } 
-    			<span class="caret"></span></a>
-    			<ul class="dropdown-menu">
-    				<li><a href="loginServlet">Sair</a></li>
-    			</ul>
-    		</li>
-      </ul>
+      </ul>    
+      <c:if test="${empty usuario }"> 
+	      <ul class="nav navbar-nav navbar-right">
+	      	<li><a href="cadastro-usuario.jsp">Registre-se!</a></li>
+	      	<li><a href="login.jsp">Login</a></li>
+	      </ul>     
+      </c:if>
+      <c:if test="${not empty usuario }">
+	      <ul class="nav navbar-nav navbar-right">
+	    		<li class="dropdown">
+	    			<a href="#" class="dropdown-toggle"	
+	    			data-toggle="dropdown" role="button"
+	    			 aria-haspopup="true" 
+	    			aria-expanded="false">${usuario } 
+	    			<span class="caret"></span></a>
+	    			<ul class="dropdown-menu">
+	    				<li><a href="loginServlet">Sair</a></li>
+	    			</ul>
+	    		</li>
+	      </ul>
+      </c:if>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
