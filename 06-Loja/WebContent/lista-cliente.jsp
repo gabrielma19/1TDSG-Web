@@ -39,7 +39,7 @@
 						<c:param name="codigoCliente" value="${cliente.codigo }"/>
 						<c:param name="acao" value="abrirForm"/>
 					</c:url>
-					<a href="${link }">Alterar</a>
+					<a href="${link }" class="btn btn-info btn-sm">Alterar</a>
 					<button onclick="idCliente.value = ${cliente.codigo}" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">
   						Remover
 					</button>

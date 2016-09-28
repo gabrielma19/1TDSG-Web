@@ -20,7 +20,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="cadastro-cliente.jsp">Cadastro de Cliente</a></li>
-        <li><a href="clienteServlet">Lista de Clientes</a></li>
+        <li><a href="clienteServlet?acao=listar">Lista de Clientes</a></li>
         <li><a href="cadastro-produto.jsp">Cadastro de Produto</a></li>
         <li><a href="produtoServlet">Listar Produto</a></li>        
       </ul>    

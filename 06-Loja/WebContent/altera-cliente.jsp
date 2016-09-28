@@ -12,12 +12,46 @@
 <%@ include file="menu.jsp" %>
 <div class="container">
 	<h1>Atualização de Cliente</h1>
-	<form>
+	
+	<!-- Exibe as mensagens -->
+	<c:if test="${not empty mensagem }">
+		<div class="alert alert-danger">
+			${mensagem }
+		</div>
+	</c:if>
+	
+	<form action="clienteServlet" method="post">
+		<input type="hidden" name="acao" value="alterar">
+		<input type="hidden" name="codigo" value="${cli.codigo }">
 		<div class="form-group">
 			<label for="idNome">Nome</label>
-			<input type="text" name="nome" id="idNome" class="form-control">
+			<input value="${cli.nome}" type="text" name="nome" id="idNome" class="form-control">
 		</div>
-		
+		<div class="form-group">
+			<label for="id-endereco">Endereço</label>
+			<input type="text" name="endereco" value="${cli.endereco }"
+							id="id-endereco" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="id-idade">Idade</label>
+			<input type="text" name="idade" value="${cli.idade }" 
+							id="id-idade" class="form-control">
+		</div>
+		<div class="form-group">
+			<label>Sexo</label>
+			<input type="radio" name="sexo" 
+				<c:if test="${cli.sexo == 'Feminino' }">checked</c:if> 
+							value="Feminino" id="id-feminino">
+			<label for="id-feminino">Feminino</label>
+			
+			<input type="radio" name="sexo"
+				<c:if test="${cli.sexo == 'Masculino' }">checked</c:if> 
+							value="Masculino" id="id-masculino">
+			<label for="id-masculino">Masculino</label>								
+		</div>
+		<div class="form-group">
+			<input type="submit" value="Alterar" class="btn btn-info">
+		</div>
 	</form>
 </div>
 </body>

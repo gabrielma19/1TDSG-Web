@@ -36,6 +36,10 @@ public class ClienteBO {
 	
 	public void atualizar(Cliente cliente) throws Exception{
 		Cliente cli = buscarPorId(cliente.getCodigo());
+		//Validar o nome obrigatório
+		if (cliente.getNome() == null || cliente.getNome().length() < 3){
+			throw new Exception("Nome inválido");
+		}
 		clientes.remove(cli);
 		clientes.add(cliente);
 		

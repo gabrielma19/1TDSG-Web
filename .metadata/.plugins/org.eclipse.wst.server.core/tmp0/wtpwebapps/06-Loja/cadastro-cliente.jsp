@@ -27,7 +27,7 @@
 		</div>
 		<div class="form-group">
 			<label for="id-endereco">Endereço</label>
-			<input type="text" name="endereco"
+			<input type="text" name="endereco" 
 							id="id-endereco" class="form-control">
 		</div>
 		<div class="form-group">

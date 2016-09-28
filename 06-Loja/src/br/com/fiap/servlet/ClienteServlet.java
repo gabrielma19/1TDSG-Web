@@ -24,10 +24,7 @@ public class ClienteServlet extends HttpServlet {
 		
 		switch (acao) {
 		case "listar":
-			//Recuperar todos os clientes
-			List<Cliente> lista = bo.listar();
-			//Manda a lista para o JSP
-			req.setAttribute("chave", lista);
+			listarClientes(req, bo);
 			//Redirecionar para o JSP
 			req.getRequestDispatcher("lista-cliente.jsp").forward(req, resp);
 			break;
@@ -45,6 +42,13 @@ public class ClienteServlet extends HttpServlet {
 			break;
 		}
 	}
+
+	private void listarClientes(HttpServletRequest req, ClienteBO bo) {
+		//Recuperar todos os clientes
+		List<Cliente> lista = bo.listar();
+		//Manda a lista para o JSP
+		req.setAttribute("chave", lista);
+	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -55,6 +59,27 @@ public class ClienteServlet extends HttpServlet {
 		ClienteBO bo = new ClienteBO();
 		
 		switch (acao) {
+		case "alterar":
+			//Recuperar os campos do formulário
+			Cliente c = carregarClienteFormulario(req);
+			try {
+				//Chamar o método alterar do BO
+				bo.atualizar(c);
+				//Mensagem de sucesso
+				req.setAttribute("mensagem", "Cliente atualizado");
+				//Manda para a página de listar
+				listarClientes(req, bo);
+				req.getRequestDispatcher("lista-cliente.jsp").forward(req, resp);
+			} catch (Exception e1) {
+				//Erro de validação no BO! Mensagem de erro
+				req.setAttribute("mensagem", e1.getMessage());
+				//Para o formulário voltar preenchido
+				req.setAttribute("cli", c);
+				//Voltar para a tela de alterar
+				req.getRequestDispatcher("altera-cliente.jsp").forward(req, resp);
+				e1.printStackTrace();
+			}
+			break;
 		case "excluir":
 			//Recuperar o id do cliente que será excluido
 			long codigo =
@@ -69,29 +94,21 @@ public class ClienteServlet extends HttpServlet {
 				//mensagem de erro
 				req.setAttribute("mensagem", e.getMessage());
 			}finally {
-				//Recuperar os clientes cadastros (listar)
-				List<Cliente> lista = bo.listar();
-				//Mandar a lista para o JSP
-				req.setAttribute("chave", lista);
+				listarClientes(req, bo);
 				//encaminhar para o JSP listar
 				req.getRequestDispatcher("lista-cliente.jsp").forward(req, resp);
 			}
 			break;
 		case "cadastrar":
 			//Recuperar os dados do formulário HTML
-			String nome = req.getParameter("nome");
-			String end = req.getParameter("endereco");
-			String sexo = req.getParameter("sexo");
-			int idade = Integer.parseInt(req.getParameter("idade"));
-			
-			//Criar o objeto Cliente
-			Cliente cliente = new Cliente(0,nome,end,idade,sexo);
+			Cliente cliente = carregarClienteFormulario(req);
 			
 			//Chamar o BO			
 			bo.cadastrar(cliente);
 			
 			//Colocar uma mensagem para ser exibida na pagina
 			req.setAttribute("chave", "Cliente cadastrado!");
+			
 			//Redirecionar o usuário para o JSP
 			req.getRequestDispatcher("cadastro-cliente.jsp").forward(req, resp);
 			break;
@@ -100,6 +117,25 @@ public class ClienteServlet extends HttpServlet {
 		}
 		
 		
+	}
+
+	private Cliente carregarClienteFormulario(HttpServletRequest req) {
+		
+		String codigoString = req.getParameter("codigo");
+		long codigo = 0;
+		//Valida se foi enviado o código
+		if (codigoString != null){
+			codigo = Long.parseLong(codigoString);
+		}
+		
+		String nome = req.getParameter("nome");
+		String end = req.getParameter("endereco");
+		String sexo = req.getParameter("sexo");
+		int idade = Integer.parseInt(req.getParameter("idade"));
+		
+		//Criar o objeto Cliente
+		Cliente cliente = new Cliente(codigo,nome,end,idade,sexo);
+		return cliente;
 	}
 	
 }
