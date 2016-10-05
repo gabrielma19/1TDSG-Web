@@ -1,5 +1,7 @@
 package br.com.fiap.bean;
 
+import java.util.Calendar;
+
 public class Cliente {
 
 	private long codigo;
@@ -12,8 +14,24 @@ public class Cliente {
 	
 	private String sexo;
 	
+	private Calendar dataRegistro;
+	
+	private Calendar dataNascimento;
+	
 	public Cliente() {
 		super();
+	}
+	
+	public Cliente(long codigo, String nome, String endereco, int idade, String sexo, Calendar dataRegistro,
+			Calendar dataNascimento) {
+		super();
+		this.codigo = codigo;
+		this.nome = nome;
+		this.endereco = endereco;
+		this.idade = idade;
+		this.sexo = sexo;
+		this.dataRegistro = dataRegistro;
+		this.dataNascimento = dataNascimento;
 	}
 
 	public Cliente(long codigo, String nome, String endereco, int idade, String sexo) {
@@ -63,6 +81,22 @@ public class Cliente {
 
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
+	}
+
+	public Calendar getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(Calendar dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
+	public Calendar getDataRegistro() {
+		return dataRegistro;
+	}
+
+	public void setDataRegistro(Calendar dataRegistro) {
+		this.dataRegistro = dataRegistro;
 	}
 	
 }

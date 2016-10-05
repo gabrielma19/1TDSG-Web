@@ -12,4 +12,6 @@
 <fullyQualifiedTypeName name="com.sun.xml.internal.ws.resources.HttpserverMessages"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
 <fullyQualifiedTypeName name="br.com.fiap.bean.Cliente"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
 </qualifiedTypeNameHistroy>

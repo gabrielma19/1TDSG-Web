@@ -36,6 +36,11 @@
 							id="id-idade" class="form-control">
 		</div>
 		<div class="form-group">
+			<label for="id-data">Data de Nascimento</label>
+			<input type="text" name="dataNasc" 
+							id="id-data" class="form-control">
+		</div>
+		<div class="form-group">
 			<label>Sexo</label>
 			<input type="radio" name="sexo" 
 							value="Feminino" id="id-feminino">

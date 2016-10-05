@@ -1,6 +1,9 @@
 package br.com.fiap.servlet;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -133,9 +136,32 @@ public class ClienteServlet extends HttpServlet {
 		String sexo = req.getParameter("sexo");
 		int idade = Integer.parseInt(req.getParameter("idade"));
 		
+		//Recuperar a data de nascimento
+		String data = req.getParameter("dataNasc");
+		//Converter a String para um Calendar (Data):
+		//Criar o objeto responsavel pela conversão
+		SimpleDateFormat conversor = new SimpleDateFormat("dd/MM/yyyy");
+		//Cria um objeto Calendar com a data atual
+		Calendar dataNascimento = Calendar.getInstance();
+		try {
+			//Altera a data do objeto com a data informada pelo usuário
+			dataNascimento.setTime(conversor.parse(data));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		//Formata a data
+		//String dataFormatada 
+			//= conversor.format(dataNascimento.getTime());
+		
 		//Criar o objeto Cliente
-		Cliente cliente = new Cliente(codigo,nome,end,idade,sexo);
+		Cliente cliente = new Cliente(codigo,nome,end,idade,sexo,
+							Calendar.getInstance(), dataNascimento);
 		return cliente;
 	}
 	
 }
+
+
+
+

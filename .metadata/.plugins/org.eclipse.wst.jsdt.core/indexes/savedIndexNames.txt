@@ -1,16 +1,13 @@
 INDEX VERSION 1.3+F:\Projetos\1TDSG\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
 2043805270.index
 3559521745.index
-1624426326.index
 2370114284.index
 721215356.index
 3128616724.index
 324283084.index
-2636857123.index
 1313520080.index
 4204420809.index
 4234831296.index
 1149492548.index
-3986926100.index
 892271450.index
 3464200670.index
