@@ -124,7 +124,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="02-Servlets" path="/02-Servlets" reloadable="true" source="org.eclipse.jst.jee.server:02-Servlets"/><Context docBase="03-JSP" path="/03-JSP" reloadable="true" source="org.eclipse.jst.jee.server:03-JSP"/><Context docBase="04-JSP" path="/04-JSP" reloadable="true" source="org.eclipse.jst.jee.server:04-JSP"/><Context docBase="05-JSP-Servlet" path="/05-JSP-Servlet" reloadable="true" source="org.eclipse.jst.jee.server:05-JSP-Servlet"/><Context docBase="06-Loja" path="/06-Loja" reloadable="true" source="org.eclipse.jst.jee.server:06-Loja"/></Host>
+      <Context docBase="02-Servlets" path="/02-Servlets" reloadable="true" source="org.eclipse.jst.jee.server:02-Servlets"/><Context docBase="03-JSP" path="/03-JSP" reloadable="true" source="org.eclipse.jst.jee.server:03-JSP"/><Context docBase="04-JSP" path="/04-JSP" reloadable="true" source="org.eclipse.jst.jee.server:04-JSP"/><Context docBase="05-JSP-Servlet" path="/05-JSP-Servlet" reloadable="true" source="org.eclipse.jst.jee.server:05-JSP-Servlet"/><Context docBase="06-Loja" path="/06-Loja" reloadable="true" source="org.eclipse.jst.jee.server:06-Loja"/><Context docBase="FIAPJobs" path="/FIAPJobs" reloadable="true" source="org.eclipse.jst.jee.server:FIAPJobs"/></Host>
     </Engine>
   </Service>
 </Server>
